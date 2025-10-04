@@ -1,6 +1,10 @@
 # nvim-config-files
-### A repository to maintain my Neovim plugin congifurations
+### A repository to maintain my Neovim plugin congifuration
 
-To use this NvChad plugin config, place custom directory under `~/.config/nvim/lua/`
+Minimal neovim setup:
+- lazy: Package manager
+- rose-pine: Colorscheme
+- treesitter: Parse and highlight buffer
 
-Requires `gopls` to be installed via MasonInstall (a NvChad plugin).
+And some remaps
+
