@@ -29,7 +29,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear search hl", silent = false})
 
 -- Execute lsp formatter
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>")
 vim.keymap.set("n", "<leader>tw"," <cmd>tabclose<CR>")
@@ -37,6 +37,7 @@ vim.keymap.set("n", "<leader>tn"," <cmd>tabn<CR>")
 vim.keymap.set("n", "<leader>tp"," <cmd>tabp<CR>")
 
 -- Splits
+-- TODO: Setup ff with splits
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically"})
 vim.keymap.set("n", "<leader>sh", "<C-w>S", { desc = "Split window horizontally"})
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make window splits equal in size"})
