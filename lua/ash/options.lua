@@ -1,3 +1,4 @@
+vim.o.winborder = "rounded"
 vim.o.guicursor = ""
 vim.o.nu = true
 vim.o.relativenumber = true
@@ -13,3 +14,5 @@ vim.o.wrap = false
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undofile = true
+
+
