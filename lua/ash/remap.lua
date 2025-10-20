@@ -3,7 +3,7 @@ vim.g.maplocalleader = " "
 
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
 vim.keymap.set("v", "J", ":m' '<-2<CR>gv=gv") -- moves lines up
-vim.keymap.set("v", "J", ":m' '>+1<CR>gv=gv") -- moves lines down
+vim.keymap.set("v", "K", ":m' '>+1<CR>gv=gv") -- moves lines down
 
 vim.keymap.set("n", "J", "mzJ`z")
 
