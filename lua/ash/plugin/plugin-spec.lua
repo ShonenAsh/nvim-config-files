@@ -19,5 +19,16 @@ return {
         "nvim-telescope/telescope.nvim",
         tag = '0.1.8',
         dependencies = { "nvim-lua/plenary.nvim" },
-    }
+    },
+    {
+        "Vigemus/iron.nvim",
+    },
+    {
+        "nvimtools/none-ls.nvim",
+        dependencies = { "nvimtools/none-ls-extras.nvim" },
+    },
+    {
+        'nvim-mini/mini.statusline',
+        version = '*',
+    },
 }

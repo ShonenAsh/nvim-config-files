@@ -32,9 +32,9 @@ vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear search hl", silent = f
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>")
-vim.keymap.set("n", "<leader>tw", " <cmd>tabclose<CR>")
-vim.keymap.set("n", "<leader>tn", " <cmd>tabn<CR>")
-vim.keymap.set("n", "<leader>tp", " <cmd>tabp<CR>")
+vim.keymap.set("n", "<leader>tw", "<cmd>tabclose<CR>")
+vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>")
+vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>")
 
 -- Splits
 -- TODO: Setup ff with splits
@@ -42,3 +42,12 @@ vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }
 vim.keymap.set("n", "<leader>sh", "<C-w>S", { desc = "Split window horizontally" })
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make window splits equal in size" })
 vim.keymap.set("n", "<leader>sw", "<cmd>close<CR>", { desc = "Close current split" })
+vim.keymap.set("n", "<leader>tt", "<C-w>S<cmd>terminal<CR>")
+
+
+-- Terminal/REPL remaps
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h', { desc = 'Go to left window from terminal' })
+vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j', { desc = 'Go to below window from terminal' })
+vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k', { desc = 'Go to above window from terminal' })
+vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l', { desc = 'Go to right window from terminal' })
