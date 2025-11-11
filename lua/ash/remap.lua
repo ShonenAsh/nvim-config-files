@@ -28,8 +28,13 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- Clear search highlights with Ctrl+c in normal mode
 vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear search hl", silent = false })
 
--- Execute lsp formatter
+-- lsp stuff
+-- formatter
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
+-- doc help
+vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Toggle lsp signature help"})
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation"})
+
 
 vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>")
 vim.keymap.set("n", "<leader>tw", "<cmd>tabclose<CR>")

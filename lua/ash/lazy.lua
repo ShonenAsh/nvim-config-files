@@ -28,13 +28,13 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
     spec = {
         -- add your plugins here
-        { import = "ash.plugin" }, 
+        { import = "ash.plugin" },
     },
 
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
     install = { 
-        colorscheme = { "rose-pine" }, 
+        colorscheme = { "rose-pine" },
     },
     -- automatically check for plugin updates
     checker = { enabled = true },

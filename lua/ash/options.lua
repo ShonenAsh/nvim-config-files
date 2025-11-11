@@ -1,4 +1,4 @@
--- vim.o.winborder = "rounded"
+vim.o.winborder = "rounded"
 vim.o.guicursor = ""
 vim.o.nu = true
 vim.o.relativenumber = true
