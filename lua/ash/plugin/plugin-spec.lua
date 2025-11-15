@@ -37,13 +37,16 @@ return {
             --
             -- See :h blink-cmp-config-keymap for defining your own keymap
             keymap = {
-                preset = 'default',
-                ['<C-R>'] = {'select_and_accept', 'fallback' },
+                preset = 'super-tab',
+                -- ['<C-CR>'] = { 'select_and_accept', 'fallback' },
+                -- ['<C-y>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
             },
             appearance = {
                 nerd_font_variant = 'mono'
             },
-            completion = { documentation = { auto_show = true } },
+            completion = {
+                documentation = { auto_show = true },
+            },
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
             },

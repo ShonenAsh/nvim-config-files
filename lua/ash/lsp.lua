@@ -21,32 +21,46 @@ vim.lsp.config('clangd', {
     filetypes = { 'c', 'cpp' },
 })
 
-vim.lsp.config('basedpyright', {
-    cmd = { 'basedpyright-langserver', '--stdio' },
-    filetypes = { 'python' },
+--vim.lsp.config('basedpyright', {
+--    cmd = { 'basedpyright-langserver', '--stdio' },
+--    filetypes = { 'python' },
+--    settings = {
+--        basedpyright = {
+--            disableOrganizeImports = true,
+--            analysis = {
+--                autoSearchPaths = true,
+--                useLibraryCodeForTypes = true,
+--                diagnosticMode = 'openFilesOnly',
+--                inlayHints = {
+--                    variableTypes = true,
+--                    callArgumentNames = true,
+--                    functionReturnTypes = true,
+--                    genericTypes = true,
+--                },
+--                --                logLevel = 'Warning',
+--                typeCheckingMode = 'standard',
+--                diagnosticSeverityOverrides = {
+--                    reportUnusedImport = "none",
+--                    reportUnusedVariable = "none",
+--                },
+--            },
+--        },
+--    },
+--})
+
+vim.lsp.config('ty', {
+    cmd = { 'ty', 'server' },
+    filetypes = {'python'},
     settings = {
-        basedpyright = {
-            disableOrganizeImports = true,
-            analysis = {
-                autoSearchPaths = true,
-                useLibraryCodeForTypes = true,
-                diagnosticMode = 'openFilesOnly',
-                inlayHints = {
-                    variableTypes = true,
-                    callArgumentNames = true,
-                    functionReturnTypes = true,
-                    genericTypes = true,
-                },
-                --                logLevel = 'Warning',
-                typeCheckingMode = 'standard',
-                diagnosticSeverityOverrides = {
-                    reportUnusedImport = "none",
-                    reportUnusedVariable = "none",
-                },
+        ty = {
+            diagnosticMode = 'workspace',
+            experimental = {
+                rename = true,
             },
         },
     },
 })
+
 
 vim.lsp.config("ruff", {
     cmd = { 'ruff', 'server' },
@@ -56,7 +70,7 @@ vim.lsp.config("ruff", {
     },
 })
 
-vim.lsp.enable({ 'luals', 'gopls', 'basedpyright', 'clangd', 'ruff' })
+vim.lsp.enable({ 'luals', 'gopls', 'ty', 'clangd', 'ruff' })
 
 local null_ls = require("null-ls")
 
