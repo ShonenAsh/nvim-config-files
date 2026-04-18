@@ -21,36 +21,9 @@ vim.lsp.config('clangd', {
     filetypes = { 'c', 'cpp' },
 })
 
---vim.lsp.config('basedpyright', {
---    cmd = { 'basedpyright-langserver', '--stdio' },
---    filetypes = { 'python' },
---    settings = {
---        basedpyright = {
---            disableOrganizeImports = true,
---            analysis = {
---                autoSearchPaths = true,
---                useLibraryCodeForTypes = true,
---                diagnosticMode = 'openFilesOnly',
---                inlayHints = {
---                    variableTypes = true,
---                    callArgumentNames = true,
---                    functionReturnTypes = true,
---                    genericTypes = true,
---                },
---                --                logLevel = 'Warning',
---                typeCheckingMode = 'standard',
---                diagnosticSeverityOverrides = {
---                    reportUnusedImport = "none",
---                    reportUnusedVariable = "none",
---                },
---            },
---        },
---    },
---})
-
 vim.lsp.config('ty', {
     cmd = { 'ty', 'server' },
-    filetypes = {'python'},
+    filetypes = { 'python' },
     settings = {
         ty = {
             diagnosticMode = 'workspace',
@@ -61,7 +34,7 @@ vim.lsp.config('ty', {
     },
 })
 
-
+-- Python formatter
 vim.lsp.config("ruff", {
     cmd = { 'ruff', 'server' },
     filetypes = { 'python' },
@@ -70,54 +43,58 @@ vim.lsp.config("ruff", {
     },
 })
 
-vim.lsp.enable({ 'luals', 'gopls', 'ty', 'clangd', 'ruff' })
+-- JS/TS
+vim.lsp.config('vtsls', {
+    cmd = { 'vtsls', '--stdio' },
+    filetypes = {
+        'javascript', 'javascriptreact', 'javascript.jsx',
+        'typescript', 'typescriptreact', 'typescript.tsx'
+    },
+    root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json', '.git' },
+    settings = {
+        typescript = {
+            inlayHints = {
+                parameterNames = { enabled = "all" },
+                variableTypes = { enabled = true },
+            },
+        },
+    },
+})
+
+vim.lsp.enable({ 'luals', 'gopls', 'ty', 'clangd', 'ruff', 'vtsls' })
+
 
 local null_ls = require("null-ls")
+-- 1. Grab the extras modules (requires 'nvim-lua/plenary.nvim' and 'nvim-tools/none-ls-extras.nvim')
+local eslint_diagnostics = require("none-ls.diagnostics.eslint")
+local eslint_code_actions = require("none-ls.code_actions.eslint")
 
 null_ls.setup({
     sources = {
         require('none-ls.formatting.ruff').with { extra_args = { '--extend-select', 'I' } },
         require 'none-ls.formatting.ruff_format',
-        --        null_ls.builtins.completion.spell,
-        require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
-    },
-})
+        -- ESLint Diagnostics (The modern way)
+        eslint_diagnostics.with({
 
---
---vim.api.nvim_create_autocmd('LspAttach', {
---    callback = function(arg)
---        local client = vim.lsp.get_client_by_id(arg.data.client_id)
---        if client == nil then
---            return
---        end
---
---        if client.name == 'ruff' then
---            -- Disable hover in favor of Pyright
---            client.server_capabilities.hoverProvider = false
---        end
---
---        if client.name == 'basedpyright' then
---            -- Enable inlay hints
---            if client.supports_method('textDocument/inlayHint') then
---                vim.lsp.inlay_hint.enable(true, { bufnr = arg.buf })
---            end
---        end
---
---        if client:supports_method('textDocument/completion') then
---            vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'noselect',
---                'fuzzy', 'popup', 'preview' }
---            vim.lsp.completion.enable(true, client.id, arg.buf, { autotrigger = true })
---        end
---    end,
---})
---
---vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
---    vim.lsp.handlers.hover, { border = 'rounded' }
---)
---
---vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
---    vim.lsp.handlers.signature_help, { border = 'rounded' }
---)
+            condition = function(utils)
+                return utils.root_has_file({
+
+                    ".eslintrc", ".eslintrc.js", ".eslintrc.json", "eslint.config.js", "eslint.config.mjs"
+
+                })
+            end,
+        }),
+
+        -- ESLint Code Actions
+        eslint_code_actions.with({
+            condition = function(utils)
+                return utils.root_has_file({
+                    ".eslintrc", ".eslintrc.js", ".eslintrc.json", "eslint.config.js", "eslint.config.mjs"
+                })
+            end,
+        }),
+    }
+})
 
 vim.keymap.set('n', '<leader>td', function()
     local vlines = vim.diagnostic.config().virtual_lines
@@ -129,3 +106,7 @@ end, { desc = 'Toggle diagnostics', silent = true, noremap = true })
 vim.keymap.set('n', '<leader>th', function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
 end, { desc = 'Toggle inlay hints' })
+
+vim.cmd("set completeopt+=noselect")
+
+

@@ -1,9 +1,14 @@
 return {
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
+     {
+      'sainnhe/everforest',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.everforest_enable_italic = true
+        vim.cmd.colorscheme('everforest')
+      end
     },
     {
         "rose-pine/neovim",
@@ -37,7 +42,11 @@ return {
             --
             -- See :h blink-cmp-config-keymap for defining your own keymap
             keymap = {
-                preset = 'enter',
+                -- preset = 'enter',
+                preset = 'default',
+                ['<UP>'] = {'fallback'},
+                ['<DOWN>'] = {'fallback'},
+                ['<CR>'] = {'fallback'},
                 -- ['<C-CR>'] = { 'select_and_accept', 'fallback' },
                 -- ['<C-y>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
             },
@@ -81,4 +90,19 @@ return {
         'nvim-mini/mini.statusline',
         version = '*',
     },
+    {
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type oil.SetupOpts
+        opts = {
+            view_options = {
+                show_hidden = true,
+            },
+        },
+        -- Optional dependencies
+        dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+        -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+        lazy = false,
+    }
 }

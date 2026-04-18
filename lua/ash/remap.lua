@@ -1,7 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
+--  vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 vim.keymap.set("v", "J", ":m' '<-2<CR>gv=gv") -- moves lines up
 vim.keymap.set("v", "K", ":m' '>+1<CR>gv=gv") -- moves lines down
 
@@ -24,6 +25,10 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- TBD: Exit insert mode with Ctrl+c
 vim.keymap.set("i", "<C-c>", "<Esc>")
+
+-- Jump to the first non-whitespace char at the beginning of the line
+vim.keymap.set("i", "<Home>", "<C-o>^", { desc = 'Jump to the first non-whitespace char'})
+vim.keymap.set("i", "<C-Home>", "<C-o>0", { desc = 'Jump to beginning'})
 
 -- Clear search highlights with Ctrl+c in normal mode
 vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear search hl", silent = false })
@@ -56,3 +61,4 @@ vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h', { desc = 'Go to left window fr
 vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j', { desc = 'Go to below window from terminal' })
 vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k', { desc = 'Go to above window from terminal' })
 vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l', { desc = 'Go to right window from terminal' })
+
