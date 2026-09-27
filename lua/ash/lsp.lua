@@ -11,6 +11,19 @@ vim.lsp.config('luals', {
     }
 })
 
+-- node languages
+-- vim.lsp.config('denols', {
+--     cmd = { 'deno', 'lsp' },
+--     filetypes = { 'javascript', 'typescript' },
+--     root_markers = { 'package.json' }
+-- })
+
+vim.lsp.config('tsgo', {
+  cmd = { 'tsc', '--lsp', '--stdio' },
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' },
+  root_dir = vim.fs.root(0, { 'tsconfig.json', 'package.json', '.git' }),
+})
+
 vim.lsp.config('gopls', {
     cmd = { 'gopls' },
     filetypes = { 'go' },
@@ -19,6 +32,12 @@ vim.lsp.config('gopls', {
 vim.lsp.config('clangd', {
     cmd = { 'clangd' },
     filetypes = { 'c', 'cpp' },
+    root_markers = { 'compile_commands.json',
+        'compile_flags.txt',
+        'CMakeLists.txt',
+        'Makefile',
+        '.git'
+    }
 })
 
 vim.lsp.config('ty', {
@@ -44,24 +63,30 @@ vim.lsp.config("ruff", {
 })
 
 -- JS/TS
-vim.lsp.config('vtsls', {
-    cmd = { 'vtsls', '--stdio' },
-    filetypes = {
-        'javascript', 'javascriptreact', 'javascript.jsx',
-        'typescript', 'typescriptreact', 'typescript.tsx'
-    },
-    root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json', '.git' },
-    settings = {
-        typescript = {
-            inlayHints = {
-                parameterNames = { enabled = "all" },
-                variableTypes = { enabled = true },
-            },
-        },
-    },
+--vim.lsp.config('vtsls', {
+--    cmd = { 'vtsls', '--stdio' },
+--    filetypes = {
+--        'javascript', 'javascriptreact', 'javascript.jsx',
+--        'typescript', 'typescriptreact', 'typescript.tsx'
+--    },
+--    root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json', '.git' },
+--    settings = {
+--        typescript = {
+--            inlayHints = {
+--                parameterNames = { enabled = "all" },
+--                variableTypes = { enabled = true },
+--            },
+--        },
+--    },
+--})
+-- R language server
+vim.lsp.config('r_language_server', {
+    cmd = { "R", "--no-echo", "-e", "languageserver::run()" },
+    filetypes = { 'r', 'rmd' },
+    root_markers = { '.Rprofile' },
 })
 
-vim.lsp.enable({ 'luals', 'gopls', 'ty', 'clangd', 'ruff', 'vtsls' })
+vim.lsp.enable({ 'luals', 'gopls', 'ty', 'clangd', 'ruff', 'r_language_server', 'tsgo' })
 
 
 local null_ls = require("null-ls")
@@ -108,5 +133,3 @@ vim.keymap.set('n', '<leader>th', function()
 end, { desc = 'Toggle inlay hints' })
 
 vim.cmd("set completeopt+=noselect")
-
-

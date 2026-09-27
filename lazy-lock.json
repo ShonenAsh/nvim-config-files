@@ -1,16 +1,17 @@
 {
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
-  "everforest": { "branch": "master", "commit": "aeef62ee97872d2557d25904d160ec93a4a355f8" },
-  "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
-  "iron.nvim": { "branch": "master", "commit": "88cd340407b959f1168af2a6ae5a3d180e6df32c" },
+  "friendly-snippets": { "branch": "main", "commit": "b4d01b0fdf3c9a549961c2f9ffe8dc09be166219" },
+  "iron.nvim": { "branch": "master", "commit": "0168b419bc7df70cd2d97c2ec8158b6b002450b2" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
-  "mini.icons": { "branch": "main", "commit": "bac6317300e205335df425296570d84322730067" },
-  "mini.statusline": { "branch": "main", "commit": "14919901649d20d020e659c63c03baa75cd94f33" },
-  "none-ls-extras.nvim": { "branch": "main", "commit": "70ec8815cdf186223af04cc5a15bc8bdface0ef0" },
-  "none-ls.nvim": { "branch": "main", "commit": "899e93f9f10251d7220b188eba1b837c0ba27927" },
-  "nvim-treesitter": { "branch": "master", "commit": "cf12346a3414fa1b06af75c79faebe7f76df080a" },
-  "oil.nvim": { "branch": "master", "commit": "0fcc83805ad11cf714a949c98c605ed717e0b83e" },
+  "mini.icons": { "branch": "main", "commit": "f642e3ba8c12afbc8f32f6d77ef6597eac56786f" },
+  "mini.nvim": { "branch": "main", "commit": "561751e839b99a4baca36b9d963166b66d2536a6" },
+  "mini.statusline": { "branch": "main", "commit": "b5547f44560dae3ccd81f914256fa6f705837022" },
+  "none-ls-extras.nvim": { "branch": "main", "commit": "9a8b8a9aeb43382e5aaf49b00b7cfb5d42d32118" },
+  "none-ls.nvim": { "branch": "main", "commit": "c4b82bb63b13856ba4d6b971b7aad3bb38fc6fe2" },
+  "nordic.nvim": { "branch": "main", "commit": "9fb62116b891184049c50ca6ffb0d3bc100a1a6e" },
+  "nvim-treesitter": { "branch": "main", "commit": "728e031f6b11d03d1f0708b7dc4fb0f1d9c8a137" },
+  "oil.nvim": { "branch": "master", "commit": "b73018b75affd13fa38e2fc94ef753b465f770d7" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
-  "rose-pine": { "branch": "main", "commit": "9504524e5ed0e326534698f637f9d038ba4cd0ee" },
-  "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" }
+  "render-markdown.nvim": { "branch": "main", "commit": "640a3ec6d538bad17c328be373c7cad0293d9589" },
+  "telescope.nvim": { "branch": "master", "commit": "40aedd8a68c78a656a10a8d62d80c54af59420fb" }
 }
