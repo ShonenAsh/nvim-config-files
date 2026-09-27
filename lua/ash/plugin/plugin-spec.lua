@@ -1,18 +1,20 @@
 return {
-     {
-      'sainnhe/everforest',
-      lazy = false,
-      priority = 1000,
-      config = function()
-        -- Optionally configure and load the colorscheme
-        -- directly inside the plugin declaration.
-        vim.g.everforest_enable_italic = true
-        vim.cmd.colorscheme('everforest')
-      end
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
     },
     {
-        "rose-pine/neovim",
-        name = "rose-pine"
+        'AlexvZyl/nordic.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('nordic').load()
+        end
     },
     {
         'saghen/blink.cmp',
@@ -44,9 +46,9 @@ return {
             keymap = {
                 -- preset = 'enter',
                 preset = 'default',
-                ['<UP>'] = {'fallback'},
-                ['<DOWN>'] = {'fallback'},
-                ['<CR>'] = {'fallback'},
+                ['<UP>'] = { 'fallback' },
+                ['<DOWN>'] = { 'fallback' },
+                ['<CR>'] = { 'fallback' },
                 -- ['<C-CR>'] = { 'select_and_accept', 'fallback' },
                 -- ['<C-y>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
             },
@@ -70,14 +72,14 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = 'master',
+        branch = "main",
         lazy = false,
         build = ":TSUpdate"
     },
     {
         "nvim-telescope/telescope.nvim",
-        tag = '0.1.8',
         dependencies = { "nvim-lua/plenary.nvim" },
+        lazy = false,
     },
     {
         "Vigemus/iron.nvim",
