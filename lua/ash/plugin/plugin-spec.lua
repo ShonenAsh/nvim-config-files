@@ -34,11 +34,11 @@ return {
                     float = true,
                 },
                 -- Enable brighter float border.
-                bright_border = false,
+                bright_border = true,
                 -- Reduce the overall amount of blue in the theme (diverges from base Nord).
                 reduced_blue = false,
                 -- Swap the dark background with the normal one.
-                swap_backgrounds = true,
+                swap_backgrounds = false,
                 -- Cursorline options.
                 cursorline = {
                     -- Bold font in cursorline.
