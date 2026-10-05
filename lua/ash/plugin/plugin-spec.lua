@@ -34,11 +34,11 @@ return {
                     float = true,
                 },
                 -- Enable brighter float border.
-                bright_border = false,
+                bright_border = true,
                 -- Reduce the overall amount of blue in the theme (diverges from base Nord).
                 reduced_blue = false,
                 -- Swap the dark background with the normal one.
-                swap_backgrounds = true,
+                swap_backgrounds = false,
                 -- Cursorline options.
                 cursorline = {
                     -- Bold font in cursorline.
@@ -48,7 +48,7 @@ return {
                     -- Available styles: 'dark', 'light'.
                     theme = 'dark',
                     -- Blending the cursorline bg with the buffer bg.
-                    blend = 0.85,
+                    blend = 0.25,
                 },
                 -- Visual selection options.
                 visual = {
@@ -57,13 +57,13 @@ return {
                     -- Bold visual selection number.
                     bold_number = true,
                     -- Available styles: 'dark', 'light'.
-                    theme = 'dark',
+                    theme = 'light',
                     -- Blending the visual selection bg with the buffer bg.
-                    blend = 0.85,
+                    blend = 0.25,
                 },
                 noice = {
                     -- Available styles: `classic`, `flat`.
-                    style = 'classic',
+                    style = 'flat',
                 },
                 telescope = {
                     -- Available styles: `classic`, `flat`.
