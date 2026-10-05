@@ -48,7 +48,7 @@ return {
                     -- Available styles: 'dark', 'light'.
                     theme = 'dark',
                     -- Blending the cursorline bg with the buffer bg.
-                    blend = 0.85,
+                    blend = 0.25,
                 },
                 -- Visual selection options.
                 visual = {
@@ -57,13 +57,13 @@ return {
                     -- Bold visual selection number.
                     bold_number = true,
                     -- Available styles: 'dark', 'light'.
-                    theme = 'dark',
+                    theme = 'light',
                     -- Blending the visual selection bg with the buffer bg.
-                    blend = 0.85,
+                    blend = 0.25,
                 },
                 noice = {
                     -- Available styles: `classic`, `flat`.
-                    style = 'classic',
+                    style = 'flat',
                 },
                 telescope = {
                     -- Available styles: `classic`, `flat`.
