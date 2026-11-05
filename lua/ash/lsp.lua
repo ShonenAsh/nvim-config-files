@@ -79,14 +79,16 @@ vim.lsp.config("ruff", {
 --        },
 --    },
 --})
+--
+-- NOT REQUIRED SINCE ITS HANDLED VIA R.NVIM NOW
 -- R language server
-vim.lsp.config('r_language_server', {
-    cmd = { "R", "--no-echo", "-e", "languageserver::run()" },
-    filetypes = { 'r', 'rmd' },
-    root_markers = { '.Rprofile' },
-})
+-- vim.lsp.config('r_language_server', {
+--     cmd = { "R", "--no-echo", "-e", "languageserver::run()" },
+--     filetypes = { 'r', 'rmd' },
+--     root_markers = { '.Rprofile' },
+-- })
 
-vim.lsp.enable({ 'luals', 'gopls', 'ty', 'clangd', 'ruff', 'r_language_server', 'tsgo' })
+vim.lsp.enable({ 'luals', 'gopls', 'ty', 'clangd', 'ruff', 'tsgo' })
 
 
 local null_ls = require("null-ls")
